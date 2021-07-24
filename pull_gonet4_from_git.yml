@@ -42,12 +42,13 @@
           name: fraction
           executable: pip3
 
-      - name: Get gonet3 repo from GitHub
+      - name: Get gonet4 repo from GitHub
         git: 
           dest: /home/pi/Tools/Camera
           repo: "https://github.com/Wied58/gonet4.git"
           update: yes
           force: yes
+          version: "main"
 
       - name: Change owership and permissions
         file:

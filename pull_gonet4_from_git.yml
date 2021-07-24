@@ -65,11 +65,11 @@
           regexp: '^gpu_mem='
           line: 'gpu_mem=256'
 
-      - name: Fix PiCamera Timeout
-        lineinfile:
-          path: /usr/local/lib/python3.7/dist-packages/picamera/camera.py
-          regexp: 'CAPTURE_TIMEOUT ='
-          line: 'CAPTURE_TIMEOUT = 600'
+#      - name: Fix PiCamera Timeout
+#        lineinfile:
+#          path: /usr/local/lib/python3.7/dist-packages/picamera/camera.py
+#          regexp: 'CAPTURE_TIMEOUT ='
+#          line: 'CAPTURE_TIMEOUT = 600'
         
       - name: Update .bashrc
         blockinfile: 

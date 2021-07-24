@@ -1,0 +1,80 @@
+--- 
+- 
+  hosts: all
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+  
+      - name: Ensure pip3 is installed 
+        apt:
+          name: python3-pip 
+          state: present
+      
+      - name: Ensure setuptools 2 is installed 
+        apt:
+           name: python-setuptools
+           state: present 
+
+      - name: Ensure setuptools 3 is installed 
+        apt:
+          name: python3-setuptools
+          state: present
+          
+
+      - name: Ensure pyserial is installed with pip 3
+        pip:
+          name: pyserial
+          executable: pip3
+
+      - name: Ensure Pillow is installed with pip 3
+        pip:
+          name: Pillow
+          executable: pip3
+          
+      - name: Ensure picamera is installed with pip 3
+        pip:
+          name: picamera
+          executable: pip3
+          
+      - name: Ensure fraction is installed with pip 3
+        pip:
+          name: fraction
+          executable: pip3
+
+      - name: Get gonet3 repo from GitHub
+        git: 
+          dest: /home/pi/Tools/Camera
+          repo: "https://github.com/Wied58/gonet4.git"
+          update: yes
+          force: yes
+
+      - name: Change owership and permissions
+        file:
+           path: /home/pi/Tools/Camera
+           state: directory
+           owner: pi 
+           group: pi
+           # when specifying mode using octal numbers, add a leading 0
+           mode: 0755
+           recurse: yes
+
+      - name: Set GPU Memory
+        lineinfile:
+          path: /boot/config.txt
+          regexp: '^gpu_mem='
+          line: 'gpu_mem=256'
+
+      - name: Fix PiCamera Timeout
+        lineinfile:
+          path: /usr/local/lib/python3.7/dist-packages/picamera/camera.py
+          regexp: 'CAPTURE_TIMEOUT ='
+          line: 'CAPTURE_TIMEOUT = 600'
+        
+      - name: Update .bashrc
+        blockinfile: 
+           dest: "/home/pi/.bashrc"
+           block: |
+             alias pull_gonet='ansible-pull -d /home/pi/pull -i '\''localhost,'\'' -U https://github.com/Wied58/Update_gonet pull_gonet.yml'
+   
+

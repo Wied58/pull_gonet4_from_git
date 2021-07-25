@@ -62,9 +62,9 @@
 
       - name: Set GPU Memory
         lineinfile:
-          path: /boot/config.txt
-          regexp: '^gpu_mem='
-          line: 'gpu_mem=256'
+           path: /boot/config.txt
+           regexp: '^gpu_mem='
+           line: 'gpu_mem=256'
 
 #      - name: Fix PiCamera Timeout
 #        lineinfile:

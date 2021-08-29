@@ -49,12 +49,12 @@
         register: version
    
       - debug:
-          var: version
+          var: version.stdout
 
       - name: Copy gonet4.py with version
         copy:
           src: "/home/pi/Tools/Camera/gonet4.py"
-          dest: "/home/pi/Tools/Camera/gonet4.py.{{ version }}"
+          dest: "/home/pi/Tools/Camera/gonet4.py.{{ version.stdout }}"
           owner: pi
           group: pi
           mode: '0755'

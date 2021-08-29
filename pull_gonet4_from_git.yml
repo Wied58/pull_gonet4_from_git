@@ -60,6 +60,10 @@
            mode: 0755
            recurse: yes
 
+      - name: Execute the update Version script
+        command:  /home/pi/Tools/Camera/fetch_git_hash.sh
+        become_user: pi
+
       - name: Set GPU Memory
         lineinfile:
            dest: /boot/config.txt

@@ -42,6 +42,15 @@
           name: fraction
           executable: pip3
 
+      - name: Ansible register variable basic example
+        shell: "ls"
+        args:
+          chdir: "/home/pi/Tools/Version"
+        register: version
+   
+      - debug:
+          var: version
+
       - name: Get gonet4 repo from GitHub
         git: 
           dest: /home/pi/Tools/Camera

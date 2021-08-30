@@ -97,6 +97,6 @@
         blockinfile: 
            dest: "/home/pi/.bashrc"
            block: |
-             alias pull_gonet='ansible-pull -d /home/pi/pull -i '\''localhost,'\'' -U https://github.com/Wied58/Update_gonet pull_gonet.yml'
+             alias pull_gonet='ansible-pull -d /home/pi/pull -i 'localhost,' -U https://github.com/Wied58/pull_gonet4_from_git pull_gonet4_from_git.yml'
    
 

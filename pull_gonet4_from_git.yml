@@ -61,7 +61,7 @@
 
       - name: Get gonet4 repo from GitHub
         git: 
-          dest: /home/pi/Tools/Camera
+          dest: /home/pi/Tools/git
           repo: "https://github.com/Wied58/gonet4.git"
           update: yes
           force: yes
@@ -69,7 +69,7 @@
 
       - name: Change owership and permissions
         file:
-           path: /home/pi/Tools/Camera
+           path: /home/pi/Tools/git
            state: directory
            owner: pi 
            group: pi

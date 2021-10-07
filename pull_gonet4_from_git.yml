@@ -81,6 +81,18 @@
         command:  /home/pi/Tools/git_repo/fetch_git_hash.sh
         become_user: pi
 
+      - name: Copy gonet4.py from git_repo to Camera
+        copy:
+          src: "/home/pi/Tools/git_repo/gonet4.py"
+          dest: "/home/pi/Tools/Camera/gonet4.py
+          owner: pi
+          group: pi
+          mode: '0755'
+
+
+
+
+
       - name: Set GPU Memory
         lineinfile:
            dest: /boot/config.txt

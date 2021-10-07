@@ -77,9 +77,31 @@
            mode: 0755
            recurse: yes
 
-      - name: Execute the update Version script
-        command:  /home/pi/Tools/git_repo/fetch_git_hash.sh
-        become_user: pi
+
+
+      - name: empty dest directory 
+        file:
+          state: absent
+          path: /home/pi/Tools/Version
+      
+      - name: recreate directory 
+        file:
+          state: directory
+          path: /home/pi/Tools/Version
+      
+      # touch file
+      - name: ensure file exists
+        copy:
+          content: "{{ version.stdout }}"
+          dest: /home/pi/Tools/Version
+          force: no
+          group: sys
+          owner: root
+          mode: 0555
+
+#      - name: Execute the update Version script
+#        command:  /home/pi/Tools/git_repo/fetch_git_hash.sh
+#        become_user: pi
 
       - name: Copy gonet4.py from git_repo to Camera
         copy:

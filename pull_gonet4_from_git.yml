@@ -91,11 +91,11 @@
       
       - name: ensure file exists
         copy:
-          content: "{{ version.stdout }}"
-          dest: "/home/pi/Tools/Version/"
+          content: ""
+          dest: "/home/pi/Tools/Version/{{ version.stdout }}"
           force: no
-          group: sys
-          owner: root
+          group: pi
+          owner: pi
           mode: 0555
 
 #      - name: Execute the update Version script

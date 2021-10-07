@@ -61,7 +61,7 @@
 
       - name: Get gonet4 repo from GitHub
         git: 
-          dest: /home/pi/Tools/git
+          dest: /home/pi/Tools/git_repo
           repo: "https://github.com/Wied58/gonet4.git"
           update: yes
           force: yes
@@ -69,7 +69,7 @@
 
       - name: Change owership and permissions
         file:
-           path: /home/pi/Tools/git
+           path: /home/pi/Tools/git_repo
            state: directory
            owner: pi 
            group: pi
@@ -78,7 +78,7 @@
            recurse: yes
 
       - name: Execute the update Version script
-        command:  /home/pi/Tools/git/fetch_git_hash.sh
+        command:  /home/pi/Tools/git_repo/fetch_git_hash.sh
         become_user: pi
 
       - name: Set GPU Memory

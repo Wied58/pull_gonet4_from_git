@@ -82,18 +82,17 @@
       - name: empty dest directory 
         file:
           state: absent
-          path: /home/pi/Tools/Version
+          path: /home/pi/Tools/Version/
       
       - name: recreate directory 
         file:
           state: directory
-          path: /home/pi/Tools/Version
+          path: /home/pi/Tools/Version/
       
-      # touch file
       - name: ensure file exists
         copy:
           content: "{{ version.stdout }}"
-          dest: /home/pi/Tools/Version
+          dest: "/home/pi/Tools/Version/"
           force: no
           group: sys
           owner: root

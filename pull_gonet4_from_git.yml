@@ -84,10 +84,10 @@
           state: absent
           path: /home/pi/Tools/Version/
       
-      - name: recreate directory 
-        file:
-          state: directory
-          path: /home/pi/Tools/Version/
+#      - name: recreate directory 
+#        file:
+#          state: directory
+#          path: /home/pi/Tools/Version/
       
 #      - name: ensure file exists
 #        copy:

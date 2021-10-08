@@ -87,11 +87,15 @@
         file:
           state: absent
           path: /home/pi/Tools/Version/
+          owner: pi
+          group: pi
       
       - name: recreate directory 
         file:
           state: directory
           path: /home/pi/Tools/Version/
+          owner: pi
+          group: pi
       
       - name: ensure file exists
         copy:

@@ -104,8 +104,8 @@
 
        - name: Ansible create file if it doesn't exist example
          file:
-          path: "/home/pi/Tools/Version/{{ version.stdout }}"
-          state: touch
+           path: "/home/pi/Tools/Version/{{ version.stdout }}"
+           state: touch
 
       - name: Copy gonet4.py from git_repo to Camera
         copy:

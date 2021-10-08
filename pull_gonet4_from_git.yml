@@ -84,10 +84,10 @@
           state: absent
           path: /home/pi/Tools/Version/
       
-#      - name: recreate directory 
-#        file:
-#          state: directory
-#          path: /home/pi/Tools/Version/
+      - name: recreate directory 
+        file:
+          state: directory
+          path: /home/pi/Tools/Version/
       
 #      - name: ensure file exists
 #        copy:
@@ -104,7 +104,7 @@
 
       - name: Ansible create file if it doesn't exist example
         file:
-          path: "/home/pi/Tools/Version/test"
+          path: "/home/pi/Tools/Version/test.txt"
           state: touch
 
       - name: Copy gonet4.py from git_repo to Camera

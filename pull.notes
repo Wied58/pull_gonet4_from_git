@@ -1,0 +1,1 @@
+git --git-dir /home/pi/Tools/git_repo/.git log --pretty=oneline --decorate | head -1 | awk '{print substr($1,1,5)}'

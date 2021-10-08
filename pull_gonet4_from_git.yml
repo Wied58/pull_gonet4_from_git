@@ -6,41 +6,37 @@
   become_user: root
   tasks:
   
-      - name: Ensure pip3 is installed 
-        apt:
-          name: python3-pip 
-          state: present
-      
-#      - name: Ensure setuptools 2 is installed 
+#      - name: Ensure pip3 is installed 
 #        apt:
-#           name: python-setuptools
-#           state: present 
-
-      - name: Ensure setuptools 3 is installed 
-        apt:
-          name: python3-setuptools
-          state: present
-          
-
-      - name: Ensure pyserial is installed with pip 3
-        pip:
-          name: pyserial
-          executable: pip3
-
-      - name: Ensure Pillow is installed with pip 3
-        pip:
-          name: Pillow
-          executable: pip3
-          
-      - name: Ensure picamera is installed with pip 3
-        pip:
-          name: picamera
-          executable: pip3
-          
-      - name: Ensure fraction is installed with pip 3
-        pip:
-          name: fraction
-          executable: pip3
+#          name: python3-pip 
+#          state: present
+#      
+#
+#      - name: Ensure setuptools 3 is installed 
+#        apt:
+#          name: python3-setuptools
+#          state: present
+#          
+#
+#      - name: Ensure pyserial is installed with pip 3
+#        pip:
+#          name: pyserial
+#          executable: pip3
+#
+#      - name: Ensure Pillow is installed with pip 3
+#        pip:
+#          name: Pillow
+#          executable: pip3
+#          
+#      - name: Ensure picamera is installed with pip 3
+#        pip:
+#          name: picamera
+#          executable: pip3
+#          
+#      - name: Ensure fraction is installed with pip 3
+#        pip:
+#          name: fraction
+#          executable: pip3
 
       - name: Ansible register variable basic example
         shell: "ls"

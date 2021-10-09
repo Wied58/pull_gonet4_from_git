@@ -74,7 +74,8 @@
            recurse: yes
 
       - name: Ansible register variable basic example
-        shell: "git --git-dir /home/pi/Tools/git_repo/.git log --pretty=oneline --decorate | head -1 | awk '{print substr($1,1,5)}'"
+        #shell: "git --git-dir /home/pi/Tools/git_repo/.git log --pretty=oneline --decorate | head -1 | awk '{print substr($1,1,5)}'"
+        shell: echo "20."`git --git-dir /home/pi/Tools/git_repo/.git log --pretty=oneline --decorate | head -1 | awk '{print substr($1,1,5)}'`
         args:
           #chdir: "/home/pi/Tools/Version"
         register: new_version
@@ -99,7 +100,7 @@
       - name: ensure file exists
         copy:
           content: ""
-          dest: "/home/pi/Tools/Version/20.{{ new_version.stdout }}"
+          dest: "/home/pi/Tools/Version/{{ new_version.stdout }}"
           force: yes
           owner: pi
           group: www-data

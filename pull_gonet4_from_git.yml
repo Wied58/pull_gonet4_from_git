@@ -99,7 +99,7 @@
       - name: ensure file exists
         copy:
           content: ""
-          dest: "/home/pi/Tools/Version/20.{{ version.stdout }}"
+          dest: "/home/pi/Tools/Version/20.{{ new_version.stdout }}"
           force: no
           owner: pi
           group: www-data

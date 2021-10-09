@@ -100,7 +100,7 @@
         copy:
           content: ""
           dest: "/home/pi/Tools/Version/20.{{ new_version.stdout }}"
-          force: no
+          force: yes
           owner: pi
           group: www-data
           mode: 0755

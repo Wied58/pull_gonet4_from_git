@@ -68,7 +68,7 @@
            path: /home/pi/Tools/git_repo
            state: directory
            owner: pi 
-           group: pi
+           group: www-data
            # when specifying mode using octal numbers, add a leading 0
            mode: 0755
            recurse: yes
@@ -87,15 +87,13 @@
         file:
           state: absent
           path: /home/pi/Tools/Version/
-          owner: pi
-          group: pi
       
       - name: recreate directory 
         file:
           state: directory
           path: /home/pi/Tools/Version/
           owner: pi
-          group: pi
+          group: www-data
           mode: 0777
       
       - name: ensure file exists
@@ -103,8 +101,8 @@
           content: ""
           dest: "/home/pi/Tools/Version/20.{{ version.stdout }}"
           force: no
-          group: pi
           owner: pi
+          group: www-data
           mode: 0755
 
 #      - name: Execute the update Version script

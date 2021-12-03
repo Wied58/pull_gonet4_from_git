@@ -64,6 +64,7 @@
           owner: pi
           group: www-data
           mode: 0755
+          recurse: yes
 
 #      - name: Create Verison directory
 #        file:

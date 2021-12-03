@@ -53,9 +53,14 @@
           path: /home/pi/Tools/Status/
           state: directory
       
-      - name: Creates GPS directory
+      - name: Create GPS directory
         file:
           path: /home/pi/Tools/Camera/GPS
+          state: directory
+
+      - name: Create Verison directory
+        file:
+          path: /home/pi/Tools/Version
           state: directory
 
 

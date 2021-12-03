@@ -58,28 +58,28 @@
           path: /home/pi/Tools/Camera/GPS
           state: directory
 
-      - name: Create Verison directory
-        file:
-          path: /home/pi/Tools/Version
-          state: directory
-
-
-      - name: Ansible register variable basic example
-        shell: "ls"
-        args:
-          chdir: "/home/pi/Tools/Version"
-        register: version
-   
-      - debug:
-          var: version.stdout
-
-      - name: Copy gonet4.py with version
-        copy:
-          src: "/home/pi/Tools/Camera/gonet4.py"
-          dest: "/home/pi/Tools/Camera/gonet4.py.{{ version.stdout }}"
-          owner: pi
-          group: pi
-          mode: '0755'
+#      - name: Create Verison directory
+#        file:
+#          path: /home/pi/Tools/Version
+#          state: directory
+#
+#
+#      - name: Ansible register variable basic example
+#        shell: "ls"
+#        args:
+#          chdir: "/home/pi/Tools/Version"
+#        register: version
+#   
+#      - debug:
+#          var: version.stdout
+#
+#      - name: Copy gonet4.py with version
+#        copy:
+#          src: "/home/pi/Tools/Camera/gonet4.py"
+#          dest: "/home/pi/Tools/Camera/gonet4.py.{{ version.stdout }}"
+#          owner: pi
+#          group: pi
+#          mode: '0755'
 
       - name: Get gonet4 repo from GitHub
         git: 

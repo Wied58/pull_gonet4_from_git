@@ -52,11 +52,18 @@
         file:
           path: /home/pi/Tools/Status/
           state: directory
+          owner: pi
+          group: www-data
+          mode: 0755
       
+
       - name: Create GPS directory
         file:
           path: /home/pi/Tools/Camera/GPS
           state: directory
+          owner: pi
+          group: www-data
+          mode: 0755
 
 #      - name: Create Verison directory
 #        file:

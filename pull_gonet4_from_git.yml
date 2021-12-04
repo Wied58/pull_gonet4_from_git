@@ -48,7 +48,7 @@
           name: fraction
           executable: pip3
 
-      - name: Create Status directory
+      - name: Create Tools directory
         file:
           path: /home/pi/Tools/
           state: directory
@@ -56,7 +56,7 @@
           group: www-data
           mode: 0755
       
-      - name: Create Status directory
+      - name: Create Tools/Camera directory
         file:
           path: /home/pi/Tools/Camera/
           state: directory
@@ -73,7 +73,7 @@
           mode: 0755
       
 
-      - name: Create GPS directory
+      - name: Create Tools/Camera/GPS directory
         file:
           path: /home/pi/Tools/Camera/GPS/
           state: directory
@@ -81,7 +81,7 @@
           group: www-data
           mode: 0755
 
-      - name: Create Verison directory
+      - name: Create Tools/Verison directory
         file:
           path: /home/pi/Tools/Version
           state: directory

@@ -50,6 +50,22 @@
 
       - name: Create Status directory
         file:
+          path: /home/pi/Tools/
+          state: directory
+          owner: pi
+          group: www-data
+          mode: 0755
+      
+      - name: Create Status directory
+        file:
+          path: /home/pi/Tools/Camera/
+          state: directory
+          owner: pi
+          group: www-data
+          mode: 0755
+      
+      - name: Create Status directory
+        file:
           path: /home/pi/Tools/Status/
           state: directory
           owner: pi
@@ -59,17 +75,19 @@
 
       - name: Create GPS directory
         file:
-          path: /home/pi/Tools/Camera/GPS
+          path: /home/pi/Tools/Camera/GPS/
           state: directory
           owner: pi
           group: www-data
           mode: 0755
-          recurse: yes
 
-#      - name: Create Verison directory
-#        file:
-#          path: /home/pi/Tools/Version
-#          state: directory
+      - name: Create Verison directory
+        file:
+          path: /home/pi/Tools/Version
+          state: directory
+          owner: pi
+          group: www-data
+          mode: 0755
 #
 #
 #      - name: Ansible register variable basic example

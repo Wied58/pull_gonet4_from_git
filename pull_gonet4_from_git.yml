@@ -53,7 +53,7 @@
           path: /home/pi/Tools/
           state: directory
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
       
       - name: Create Tools/Camera directory
@@ -61,7 +61,7 @@
           path: /home/pi/Tools/Camera/
           state: directory
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
       
       - name: Create Status directory
@@ -69,7 +69,7 @@
           path: /home/pi/Tools/Status/
           state: directory
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
       
 
@@ -78,7 +78,7 @@
           path: /home/pi/Tools/Camera/GPS/
           state: directory
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
 
       - name: Create Tools/Verison directory
@@ -86,7 +86,7 @@
           path: /home/pi/Tools/Version
           state: directory
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
 #
 #
@@ -120,7 +120,7 @@
            path: /home/pi/Tools/git_repo
            state: directory
            owner: pi 
-           group: www-data
+           group: pi
            # when specifying mode using octal numbers, add a leading 0
            mode: 0755
            recurse: yes
@@ -146,7 +146,7 @@
           state: directory
           path: /home/pi/Tools/Version/
           owner: pi
-          group: www-data
+          group: pi
           mode: 0777
       
       - name: ensure file exists
@@ -155,7 +155,7 @@
           dest: "/home/pi/Tools/Version/{{ new_version.stdout }}"
           force: yes
           owner: pi
-          group: www-data
+          group: pi
           mode: 0755
 
 #      - name: Execute the update Version script
@@ -173,6 +173,7 @@
           dest: "/home/pi/Tools/Camera/gonet4.py"
           owner: pi
           group: pi
+          mode: 0775
 
       - name: Copy set_system_time_from_gp.py from git_repo to Camera
         copy:
@@ -180,6 +181,7 @@
           dest: "/home/pi/Tools/Camera/set_system_time_from_gps.py"
           owner: pi
           group: pi
+          mode: 0775
 
       - name: Set GPU Memory
         lineinfile:

@@ -173,7 +173,13 @@
           dest: "/home/pi/Tools/Camera/gonet4.py"
           owner: pi
           group: pi
-          mode: '0755'
+
+      - name: Copy gonet4.py from git_repo to Camera
+        copy:
+          src: "/home/pi/Tools/git_repo/set_system_time_from_gps"
+          dest: "/home/pi/Tools/Camera/set_system_time_from_gps"
+          owner: pi
+          group: pi
 
       - name: Set GPU Memory
         lineinfile:

@@ -194,6 +194,11 @@
           path: /boot/config.txt
           line: 'enable_uart=1'
 
+      - name: Enable Serial Console part 2
+        lineinfile:
+          path: /boot/config.txt
+          line: 'start_x=1'
+
 #      - name: Fix PiCamera Timeout
 #        lineinfile:
 #          path: /usr/local/lib/python3.7/dist-packages/picamera/camera.py

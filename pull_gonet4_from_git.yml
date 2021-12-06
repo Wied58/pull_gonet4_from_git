@@ -169,19 +169,27 @@
 
       - name: Copy gonet4.py from git_repo to Camera
         copy:
-          src: "/home/pi/Tools/git_repo/gonet4.py"
-          dest: "/home/pi/Tools/Camera/gonet4.py"
+          src: /home/pi/Tools/git_repo/
+          dest: /home/pi/Tools/Camera/
           owner: pi
           group: pi
           mode: 0775
 
-      - name: Copy set_system_time_from_gp.py from git_repo to Camera
-        copy:
-          src: "/home/pi/Tools/git_repo/set_system_time_from_gps.py"
-          dest: "/home/pi/Tools/Camera/set_system_time_from_gps.py"
-          owner: pi
-          group: pi
-          mode: 0775
+#      - name: Copy gonet4.py from git_repo to Camera
+#        copy:
+#          src: "/home/pi/Tools/git_repo/gonet4.py"
+#          dest: "/home/pi/Tools/Camera/gonet4.py"
+#          owner: pi
+#          group: pi
+#          mode: 0775
+#
+#      - name: Copy set_system_time_from_gp.py from git_repo to Camera
+#        copy:
+#          src: "/home/pi/Tools/git_repo/set_system_time_from_gps.py"
+#          dest: "/home/pi/Tools/Camera/set_system_time_from_gps.py"
+#          owner: pi
+#          group: pi
+#          mode: 0775
 
       - name: Set GPU Memory
         lineinfile:

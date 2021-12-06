@@ -199,7 +199,7 @@
           path: /boot/config.txt
           line: 'start_x=1'
 
-      - name: Enable Serial Console part 2
+      - name: Enable Serial Console part 3
         lineinfile:
           path: /boot/config.txt
           line: 'pi3-disable-bt'

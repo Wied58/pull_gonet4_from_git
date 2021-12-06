@@ -199,6 +199,25 @@
           path: /boot/config.txt
           line: 'start_x=1'
 
+      - name: Enable Serial Console part 2
+        lineinfile:
+          path: /boot/config.txt
+          line: 'pi3-disable-bt'
+
+      - name: rip serial line outta cmdline.txt
+        lineinfile:
+          path: /boot/cmdline.txt
+          line: console=serial0,115200
+          state: absent
+
+#sudo sed -e s/console=serial0,115200//g -i /boot/cmdline.txt
+#sudo systemctl disable hciuart
+      - name: disable service hciuart
+        systemd:
+          name: hciuart
+          enabled: no
+
+
 #      - name: Fix PiCamera Timeout
 #        lineinfile:
 #          path: /usr/local/lib/python3.7/dist-packages/picamera/camera.py

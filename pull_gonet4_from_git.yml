@@ -221,7 +221,7 @@
       - name: rip serial line outta cmdline.txt
         replace:
           path: /boot/cmdline.txt
-          regexp: console=serial0,115200
+          regexp: "console=serial0,115200 "
           replace: ""
 
 

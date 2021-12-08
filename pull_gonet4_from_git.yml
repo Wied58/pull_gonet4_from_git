@@ -212,14 +212,19 @@
           path: /boot/config.txt
           line: 'pi3-disable-bt'
 
-      - name: rip serial line outta cmdline.txt
-        lineinfile:
-          path: /boot/cmdline.txt
-          line: console=serial0,115200
-          state: absent
+#      - name: rip serial line outta cmdline.txt
+#        lineinfile:
+#          path: /boot/cmdline.txt
+#          line: console=serial0,115200
+#          state: absent
 
-#sudo sed -e s/console=serial0,115200//g -i /boot/cmdline.txt
-#sudo systemctl disable hciuart
+      - name: rip serial line outta cmdline.txt
+        replace:
+          path: /boot/cmdline.txt
+          regexp: console=serial0,115200
+          replace: ""
+
+
       - name: disable service hciuart
         systemd:
           name: hciuart

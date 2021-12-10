@@ -69,6 +69,7 @@
            - Pillow
            - picamera
            - fraction
+        executable: pip3
 
 ##################
 

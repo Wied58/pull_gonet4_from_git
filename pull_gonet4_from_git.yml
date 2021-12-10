@@ -37,68 +37,101 @@
            - python3-setuptools
            - libopenjp2-7-dev
            - libtiff5
+
 ##################
 
-      - name: Ensure pyserial is installed with pip 3
-        pip:
-          name: pyserial
-          executable: pip3
+#      - name: Ensure pyserial is installed with pip 3
+#        pip:
+#          name: pyserial
+#          executable: pip3
+#
+#      - name: Ensure Pillow is installed with pip 3
+#        pip:
+#          name: Pillow
+#          executable: pip3
+#          
+#      - name: Ensure picamera is installed with pip 3
+#        pip:
+#          name: picamera
+#          executable: pip3
+#          
+#      - name: Ensure fraction is installed with pip 3
+#        pip:
+#          name: fraction
+#          executable: pip3
 
-      - name: Ensure Pillow is installed with pip 3
+      - name: install install python packages
         pip:
-          name: Pillow
-          executable: pip3
-          
-      - name: Ensure picamera is installed with pip 3
-        pip:
-          name: picamera
-          executable: pip3
-          
-      - name: Ensure fraction is installed with pip 3
-        pip:
-          name: fraction
-          executable: pip3
+          name: "{{ item }}"
+          state: present
+        loop:
+           - pyserial
+           - Pillow
+           - picamera
+           - fraction
 
-      - name: Create Tools directory
-        file:
-          path: /home/pi/Tools/
-          state: directory
-          owner: pi
-          group: pi
-          mode: 0755
-      
-      - name: Create Tools/Camera directory
-        file:
-          path: /home/pi/Tools/Camera/
-          state: directory
-          owner: pi
-          group: pi
-          mode: 0755
-      
-      - name: Create Status directory
-        file:
-          path: /home/pi/Tools/Status/
-          state: directory
-          owner: pi
-          group: pi
-          mode: 0755
-      
+##################
 
-      - name: Create Tools/Camera/GPS directory
-        file:
-          path: /home/pi/Tools/Camera/GPS/
-          state: directory
-          owner: pi
-          group: pi
-          mode: 0755
 
-      - name: Create Tools/Verison directory
-        file:
-          path: /home/pi/Tools/Version
+#      - name: Create Tools directory
+#        file:
+#          path: /home/pi/Tools/
+#          state: directory
+#          owner: pi
+#          group: pi
+#          mode: 0755
+#      
+#      - name: Create Tools/Camera directory
+#        file:
+#          path: /home/pi/Tools/Camera/
+#          state: directory
+#          owner: pi
+#          group: pi
+#          mode: 0755
+#      
+#      - name: Create Status directory
+#        file:
+#          path: /home/pi/Tools/Status/
+#          state: directory
+#          owner: pi
+#          group: pi
+#          mode: 0755
+#      
+#
+#      - name: Create Tools/Camera/GPS directory
+#        file:
+#          path: /home/pi/Tools/Camera/GPS/
+#          state: directory
+#          owner: pi
+#          group: pi
+#          mode: 0755
+#
+#      - name: Create Tools/Verison directory
+#        file:
+#          path: /home/pi/Tools/Version
+#          state: directory
+#          owner: pi
+#          group: pi
+#          mode: 0755
+
+
+      - name: Create directories
+        file:    
+          name: "{{ item }}"
           state: directory
           owner: pi
           group: pi
           mode: 0755
+        loop:   
+           - /home/pi/Tools/
+           - /home/pi/Tools/Camera/
+           - /home/pi/Tools/Status/
+           - /home/pi/Tools/Camera/GPS/
+           - /home/pi/Tools/Version
+
+##################
+
+
 #
 #
 #      - name: Ansible register variable basic example

@@ -60,16 +60,15 @@
 #          name: fraction
 #          executable: pip3
 
-      - name: install install python packages
+      - name: install python packages
         pip:
           name: "{{ item }}"
-          state: present
+          executable: pip3
         loop:
            - pyserial
            - Pillow
            - picamera
            - fraction
-        executable: pip3
 
 ##################
 
